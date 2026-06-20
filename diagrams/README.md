@@ -23,5 +23,5 @@ This is the directory used to store and work on code that generates the diagrams
 5. Initiate virtual environment
    `source .venv/bin/activate`
 6. Install requirements.txt
-   `pip -r install requirements.txt
+   `pip -r install requirements.txt`
 7. Profit?
