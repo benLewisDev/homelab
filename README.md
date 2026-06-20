@@ -48,24 +48,28 @@ I have plans to upgrade this machine, But for now. It does a great job and means
     - My IPS uses carrier grade NAT. This means that exposing these sevices behind a traditional reverse proxy is impossible. Therefore, Cloudflare tunnels provide a convenient and secure way to access these services outside of my home network. 
 
 ## Repo layout
- homelab
-├──  diagrams
-├──  docker-services
-│   ├──  ai-llms
-│   │   ├──  liteLLM
-│   │   ├──  open-web-ui
-│   │   └──  README.md
-│   ├──  cloudflared-tunnel
-│   ├──  media
-│   │   ├──  jellyfin
-│   │   ├──  jellyseer
-│   │   ├──  qBittorrent
-│   │   ├──  radarr
-│   │   ├──  README.md
-│   │   └──  sonarr
-│   ├──  pi-hole
-│   └──  portainer
-└──  README.md
+<details>
+<summary>homelab (click to expand)</summary>
+
+- diagrams/
+- docker-services/
+  - ai-llms/
+    - liteLLM/
+    - open-web-ui/
+    - README.md
+  - cloudflared-tunnel/
+  - media/
+    - jellyfin/
+    - jellyseer/
+    - qBittorrent/
+    - radarr/
+    - README.md
+    - sonarr/
+  - pi-hole/
+  - portainer/
+- README.md
+
+</details>
 
 ## Currently Running Services
 - Media:
