@@ -9,14 +9,14 @@ A mono-repo for managing my home lab. Including but not limited to docker servic
 
 ## Table of Contents
 - [Goals](#goals)
-- Hardware and infrastructure
-- Architecture
-- Stack technology decisions and reasoning
-- Repo layout
-- Currently Running Services
-- Future Services
-- Troubleshooting
-- Contribution
+- [Hardware and infrastructure](#hardware-and-infrastructure)
+- [Architecture](#architecture)
+- [Stack technology decisions and reasoning](#stack-technology-decisions-and-reasoning)
+- [Repo layout](#Repo-layout)
+- [Currently Running Services](#currently-running-services)
+- [Future Services](#future-services)
+- [Troubleshooting](#troubleshooting)
+- [Contribution](#contribution)
 
 ## Goals
 - Easier system administation
