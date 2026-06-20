@@ -8,7 +8,7 @@ A mono-repo for managing my home lab. Including but not limited to docker servic
 - Currently in the planning stages
 
 ## Table of Contents
-- Goals
+- [Goals](#goals)
 - Hardware and infrastructure
 - Architecture
 - Stack technology decisions and reasoning
@@ -26,13 +26,13 @@ A mono-repo for managing my home lab. Including but not limited to docker servic
 - Hands on experiance and experimentation with new technologies
 
 ## Hardware and infrastructure
-- This entire system is running on my old laptop. It has modest specs:
-    - i7-7700HQ
-    - GTX-1050
-    - 8 GB RAM
-    - 120GB SSD
-    - 1TB internal HD
-    - 5TB external HD
+This entire system is running on my old laptop. It has modest specs:
+- i7-7700HQ
+- GTX-1050
+- 8 GB RAM
+- 120GB SSD
+- 1TB internal HD
+- 5TB external HD
 I have plans to upgrade this machine, But for now. It does a great job and means i am contributing to the reduction in e-waste
 
 
