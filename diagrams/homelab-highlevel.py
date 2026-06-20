@@ -1,7 +1,6 @@
 # Homelab High Level Overview
 from diagrams import Diagram, Cluster
 from diagrams.custom import Custom
-from diagrams.generic.blank import Blank
 from diagrams.generic.network import Router, Switch
 from diagrams.onprem.container import Docker
 from diagrams.digitalocean.storage import Folder
@@ -26,17 +25,19 @@ with Diagram(
             server_machine - cockpit
             cockpit >> admin
             with Cluster("Docker Services"):
-                docker_directory = Folder("/srv/docker-services")
+                docker_directory = Docker("/srv/homelab/docker-services")
                 server_machine >> docker_directory
                 with Cluster("Media"):
                     media_directory = Folder("Media Directory")
                     with Cluster("Jellyfin"):
-                        jellyfin = Docker("Jellyfin")
-                        jellyseer = Docker("JellySeer")
+                        jellyfin = Custom("Jellyfin", "./custom-icons/jellyfin.png")
+                        jellyseer = Custom("Jellyseer", "./custom-icons/jellyseerr.png")
                     with Cluster("automation"):
-                        qbittorent = Docker("qBittorent")
-                        sonarr = Docker("Sonarr")
-                        radarr = Docker("Radarr")
+                        qbittorent = Custom(
+                            "qBittorent", "./custom-icons/qbittorrent.png"
+                        )
+                        sonarr = Custom("Sonarr", "./custom-icons/sonarr.png")
+                        radarr = Custom("Radarr", "./custom-icons/radarr.png")
 
                     jellyfin >> user
                     jellyfin >> media_directory
@@ -46,13 +47,15 @@ with Diagram(
                 with Cluster("AI LLM"):
 
                     with Cluster("Open Web UI"):
-                        open_web_ui = Docker("Open Web UI")
-                        ollama = Custom("Ollama", "./custom-icons/ai-assistant.png")
+                        open_web_ui = Custom(
+                            "Open Web UI", "./custom-icons/open-webui.png"
+                        )
+                        ollama = Custom("Ollama", "./custom-icons/ollama.png")
                     with Cluster("Lite LLM"):
-                        lite_LLM = Docker("")
+                        lite_LLM = Custom("Lite LLM", "./custom-icons/litellm.png")
                     open_web_ui >> user
                     lite_LLM >> open_web_ui
 
                 with Cluster("Portainer"):
-                    portainer = Docker("Portainer")
+                    portainer = Custom("Portainer", "./custom-icons/portainer-v1.png")
                     portainer >> admin
