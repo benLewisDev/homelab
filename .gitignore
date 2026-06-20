@@ -1,4 +1,4 @@
-# Initial Ignores
+# Initial ignores
 **/secrets/
 **/.env
 **/.env.local
@@ -6,3 +6,6 @@
 **/*.pem
 **/credentials*.json
 cloudflared/cert.pem
+
+# Python specific ingores
+**/.venv
