@@ -13,7 +13,7 @@ with Diagram(
 ):
     router = Router("Router")
     tunnel_access = Custom(
-        "Cloudflare tunnel", "./custom-icons/cloudflare-zero-trust.png"
+        "Cloudflare\ntunnel", "./custom-icons/cloudflare-zero-trust.png"
     )
     user = Custom("User", "./custom-icons/user.png")
 
@@ -28,11 +28,11 @@ with Diagram(
             cockpit = Custom("Cockpit", "./custom-icons/cockpit.png")
             # Piping
             switch >> server_machine
-            admin << cockpit
+            admin >> cockpit
 
             with Cluster("Docker Services"):
                 cloudflare_tunnel = Custom(
-                    "cloudflare tunnel", "./custom-icons/cloudflare.png"
+                    "cloudflare\ntunnel", "./custom-icons/cloudflare.png"
                 )
                 # Piping
                 cloudflare_tunnel << tunnel_access << user
@@ -40,16 +40,17 @@ with Diagram(
                 server_machine >> docker_directory
 
                 with Cluster("Media"):
-                    media_directory = Folder("Media Directory")
+                    media_directory = Folder("Media\nDirectory")
                     with Cluster("Jellyfin stack"):
-                        jellyfin = Custom("Jellyfin", "./custom-icons/jellyfin.png")
                         jellyseer = Custom("Jellyseer", "./custom-icons/jellyseerr.png")
+                        jellyfin = Custom("Jellyfin", "./custom-icons/jellyfin.png")
                     with Cluster("automation stack"):
                         qbittorent = Custom(
                             "qBittorent", "./custom-icons/qbittorrent.png"
                         )
                         sonarr = Custom("Sonarr", "./custom-icons/sonarr.png")
                         radarr = Custom("Radarr", "./custom-icons/radarr.png")
+                        prowlarr = Custom("Prowlarr", "./custom-icons/prowlarr.png")
                     # Piping
                     jellyfin >> cloudflare_tunnel
                     jellyfin >> media_directory
@@ -74,3 +75,9 @@ with Diagram(
                     portainer = Custom("Portainer", "./custom-icons/portainer-v1.png")
                     # Piping
                     portainer << admin
+
+                with Cluster("Pi-hole stack"):
+                    pi_hole = Custom("Pi hole", "./custom-icons/pi-hole.png")
+                    # piping
+                    router >> pi_hole >> router
+                    admin >> pi_hole
