@@ -48,34 +48,29 @@ I have plans to upgrade this machine, But for now. It does a great job and means
     - My IPS uses carrier grade NAT. This means that exposing these sevices behind a traditional reverse proxy is impossible. Therefore, Cloudflare tunnels provide a convenient and secure way to access these services outside of my home network. 
 
 ## Repo layout
-<details>
-<summary>homelab (click to expand)</summary>
 
-- diagrams/
-- docker-services/
-  - ai-llms/
-    - liteLLM/
-    - open-web-ui/
-    - README.md
-  - cloudflared-tunnel/
-  - media/
-    - jellyfin/
-    - jellyseer/
-    - qBittorrent/
-    - radarr/
-    - README.md
-    - sonarr/
-  - pi-hole/
-  - portainer/
-- README.md
-
-</details>
+homelab/
+├── diagrams
+│   └── custom-icons
+└── docker-services
+    ├── ai-llms
+    │   ├── liteLLM
+    │   └── open-web-ui
+    ├── cloudflared-tunnel
+    ├── media
+    │   ├── jellyfin
+    │   ├── jellyseer
+    │   ├── qBittorrent
+    │   ├── radarr
+    │   └── sonarr
+    ├── pi-hole
+    └── portainer
 
 ## Currently Running Services
 - Media:
     - Used to "own my media" and have my own private streaming service
 - AI LLM's:
-    - Allows me to experiment with runnig both local LLM's as well as utilize API keys to interact with comercial LLM's on a "per token" basis instead of being subscription based
+    - Allows me to experiment with running both local LLM's as well as utilize API keys to interact with comercial LLM's on a "per token" basis instead of being subscription based
 - Pi-Hole:
     - Full network ad blocking. (DNS Sinkhole) 
 - Portainer:
