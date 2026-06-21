@@ -25,3 +25,7 @@ This is the directory used to store and work on code that generates the diagrams
 6. Install requirements.txt
    `pip -r install requirements.txt`
 7. Profit?
+
+## Refernce Documentation
+- Diagrams documentation - [Diagrams](https://diagrams.mingrammer.com/docs/getting-started/installation) 
+- Icons found here - [Self Hosted icons](https://selfh.st/icons/) 
