@@ -37,7 +37,7 @@ I have plans to upgrade this machine, But for now. It does a great job and means
 
 
 ## Architecture
-- Architecture diagrams to come!
+![Homelab High Level Architecture](./diagrams/Homelab-high-level.png) 
 
 ## Stack technology decisions and reasoning
 - Host: Fedora Server 
