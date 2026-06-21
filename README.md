@@ -1,4 +1,4 @@
-# Home Lab — Homelab Repo
+# Ben Lewis — Homelab Repo
 
 ## Short description
 
@@ -15,11 +15,11 @@ A mono-repo for managing my home lab. Including but not limited to docker servic
 - [Hardware and infrastructure](#hardware-and-infrastructure)
 - [Architecture](#architecture)
 - [Stack technology decisions and reasoning](#stack-technology-decisions-and-reasoning)
-- [Repo layout](#Repo-layout)
+- [Repo layout](#repo-layout)
 - [Currently Running Services](#currently-running-services)
 - [Future Services](#future-services)
 - [Troubleshooting](#troubleshooting)
-- [Contribution](#Contribution)
+- [Contribution](#contribution)
 
 ## Goals
 
@@ -43,7 +43,7 @@ This entire system is running on my old laptop. It has modest specs:
 
 ## Architecture
 
-![Homelab High Level Architecture](./diagrams/Homelab-high-level.png)
+![Homelab High Level Architecture](./diagrams/output/Homelab-high-level.png)
 
 ## Stack technology decisions and reasoning
 
