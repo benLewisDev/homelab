@@ -32,6 +32,7 @@ data/
     ├── music
     └── tv
 ```
+5. Ensure docker compose file is in this directory. This is because the host bind mounts use a relative file path of `./data`. This will break the mounts if the docker compose file is moved
 
 #### Deployment
 
