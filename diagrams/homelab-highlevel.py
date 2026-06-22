@@ -59,7 +59,7 @@ with Diagram(
                         prowlarr = Custom("Prowlarr", "../custom-icons/prowlarr.png")
                     # Piping
                     jellyfin >> cloudflare_tunnel
-                    jellyfin >> media_directory
+                    jellyfin << media_directory
                     qbittorent >> media_directory
                     jellyseer >> radarr
                     jellyseer >> sonarr
