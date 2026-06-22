@@ -18,7 +18,7 @@ This docker compose stack contains all the services required to run jellyfin and
 
 1. Docker installed and configured
 2. Docker Compose
-3. Mount any larger drives that you want to store the media on to `/srv/homelab/docker-services/servarr/data`
+3. Mount any larger drives that you want to store the media on to `/srv/homelab/docker-services/servarr/data`. Make sure this is mounted with ownership permissions to `PUID/PGID=1000`
 4. A file tree with the following layout in `/srv/homelab/docker-services/servarr`
 
 ```tree
@@ -200,6 +200,10 @@ Add more content types like TV or Music accordingly, binding them to correct med
 ---
 
 ## Troubleshooting
+
+## SELinux Contexts
+
+Fedora: if you are getting permissions issues check that the SELinux contexts are set correctly for the containers
 
 ## DNS check
 
