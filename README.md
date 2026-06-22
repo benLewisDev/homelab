@@ -39,7 +39,7 @@ This entire system is running on my old laptop. It has modest specs:
 - 120GB SSD
 - 1TB internal HD
 - 5TB external HD
-  I have plans to upgrade this machine, But for now. It does a great job and means i am contributing to the reduction in e-waste
+  I have plans to upgrade this machine, But for now. It does a great job and means i am contributing to a reduction in e-waste
 
 ## Architecture
 
