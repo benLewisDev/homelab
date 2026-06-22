@@ -9,7 +9,7 @@ x-common-keys: &common-keys
   environment:
     PUID: 1000
     PGID: 1000
-    TZ: Europe/London
+    TZ: Australia/Adelaide
   dns:
     - 1.1.1.1
     - 1.0.0.1
@@ -42,21 +42,6 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /docker/appdata/sonarr:/config
-      - /data:/data
-
-  ###############################################
-  # LIDARR - Music
-  ###############################################
-
-  lidarr:
-    <<: *common-keys
-    container_name: lidarr
-    image: ghcr.io/hotio/lidarr:latest
-    ports:
-      - 8686:8686
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - /docker/appdata/lidarr:/config
       - /data:/data
 
   ###############################################
