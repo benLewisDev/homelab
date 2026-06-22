@@ -39,14 +39,18 @@ with Diagram(
                 docker_directory = Docker("/srv/homelab/\ndocker-services")
                 server_machine >> docker_directory
 
-                with Cluster("Media"):
+                with Cluster("Servarr"):
                     media_directory = Folder("Media\nDirectory")
-                    with Cluster("Jellyfin stack"):
+                    # with Cluster("Jellyfin stack"):
+                    #     jellyseer = Custom(
+                    #         "Jellyseer", "../custom-icons/jellyseerr.png"
+                    #     )
+                    #     jellyfin = Custom("Jellyfin", "../custom-icons/jellyfin.png")
+                    with Cluster("Servarr stack"):
                         jellyseer = Custom(
                             "Jellyseer", "../custom-icons/jellyseerr.png"
                         )
                         jellyfin = Custom("Jellyfin", "../custom-icons/jellyfin.png")
-                    with Cluster("automation stack"):
                         qbittorent = Custom(
                             "qBittorent", "../custom-icons/qbittorrent.png"
                         )

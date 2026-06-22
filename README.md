@@ -59,25 +59,22 @@ This entire system is running on my old laptop. It has modest specs:
 ```
 homelab/
 ├── diagrams
-│   └── custom-icons
+│   ├── custom-icons
+│   └── output
 └── docker-services
     ├── ai-llms
     │   ├── liteLLM
     │   └── open-web-ui
     ├── cloudflared-tunnel
-    ├── media
-    │   ├── jellyfin
-    │   ├── jellyseer
-    │   ├── qBittorrent
-    │   ├── radarr
-    │   └── sonarr
     ├── pi-hole
-    └── portainer
+    ├── portainer
+    └── servarr
+        └── data
 ```
 
 ## Currently Running Services
 
-- Media:
+- Servarr Stack:
   - Used to "own my media" and have my own private streaming service
 - AI LLM's:
   - Allows me to experiment with running both local LLM's as well as utilize API keys to interact with commercial LLM's on a "per token" basis instead of being subscription based
