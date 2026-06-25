@@ -71,11 +71,8 @@ with Diagram(
                             "Open Web UI", "../custom-icons/open-webui.png"
                         )
                         ollama = Custom("Ollama", "../custom-icons/ollama.png")
-                    with Cluster("Lite LLM stack"):
-                        lite_LLM = Custom("Lite LLM", "../custom-icons/litellm.png")
                     # Piping
                     open_web_ui >> cloudflare_tunnel
-                    lite_LLM >> open_web_ui
 
                 with Cluster("Portainer stack"):
                     portainer = Custom("Portainer", "../custom-icons/portainer-v1.png")
