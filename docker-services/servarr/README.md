@@ -19,7 +19,12 @@ This docker compose stack contains all the services required to run jellyfin and
 1. Docker installed and configured
 2. Docker Compose
 3. Mount any larger drives that you want to store the media on to `/srv/homelab/docker-services/servarr/data`. Make sure this is mounted with ownership permissions to `PUID/PGID=1000`
-4. A file tree with the following layout in `/srv/homelab/docker-services/servarr`
+4. Use these commands to set correct permissions
+```
+sudo chown -R 1000:1000 /data
+sudo chmod -R a=,a+rX,u+w,g+w /data
+```
+5. A file tree with the following layout in `/srv/homelab/docker-services/servarr`
 
 ```tree
 data/
@@ -32,7 +37,7 @@ data/
     ├── music
     └── tv
 ```
-5. Ensure docker compose file is in this directory. This is because the host bind mounts use a relative file path of `./data`. This will break the mounts if the docker compose file is moved
+6. Ensure docker compose file is in this directory. This is because the host bind mounts use a relative file path of `./data`. This will break the mounts if the docker compose file is moved
 
 #### Deployment
 
