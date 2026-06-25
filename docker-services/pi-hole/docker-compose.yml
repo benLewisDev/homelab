@@ -16,9 +16,9 @@
       #Set upstream dns for container
       FTLCONF_dns_upstreams: "9.9.9.9;1.1.1.1"
       # Set the appropriate timezone for your location (https://en.wikipedia.org/wiki/List_of_tz_database_time_zones), e.g:
-      TZ: {$TIMEZONE}
+      TZ: "${TIMEZONE}"
       # Set a password to access the web interface. Not setting one will result in a random password being assigned
-      FTLCONF_webserver_api_password: {$API_WEB_SERVER_PW}
+      FTLCONF_webserver_api_password: "${API_WEB_SERVER_PW}"
       FTLCONF_dns_listeningMode: 'all'
     # Volumes store your data between container upgrades
     dns:
