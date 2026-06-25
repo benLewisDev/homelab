@@ -1,1 +1,11 @@
 #Cloudflared Tunnel
+services:
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflared-tunnel
+    env_file: ./secrets/.env
+    dns:
+      - 1.1.1.1
+      - 9.9.9.9
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run --token "${TUNNEL_TOKEN}"
