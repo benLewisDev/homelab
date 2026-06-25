@@ -21,8 +21,8 @@ This docker compose stack contains all the services required to run jellyfin and
 3. Mount any larger drives that you want to store the media on to `/srv/homelab/docker-services/servarr/data`. Make sure this is mounted with ownership permissions to `PUID/PGID=1000`
 4. Use these commands to set correct permissions
 ```
-sudo chown -R 1000:1000 /data
-sudo chmod -R a=,a+rX,u+w,g+w /data
+sudo chown -R 1000:1000 ~/data
+sudo chmod -R a=,a+rX,u+w,g+w ~/data
 ```
 5. A file tree with the following layout in `/srv/homelab/docker-services/servarr`
 
