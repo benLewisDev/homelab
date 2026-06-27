@@ -107,6 +107,24 @@ services:
       - /home/butler/data/media:/data/media:ro #read-only
     ports:
       - 8096:8096
+
+  ###############################################
+  # JELLYSEER - Media Request Library
+  ###############################################
+
+  jellyseerr:
+    <<: *common-keys
+    container_name: jellyseerr
+    image: fallenbagel/jellyseerr:latest
+    environment:
+         - LOG_LEVEL=debug
+         - TZ=Asia/Tashkent
+    ports:
+         - 5055:5055
+    volumes:
+         - /path/to/appdata/config:/app/config
+    restart: unless-stopped
+
 ####################################################
 # FLARESOLVERR - Cloudflare Bypass
 ####################################################
