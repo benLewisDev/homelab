@@ -104,7 +104,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /docker/appdata/jellyfin:/config
-      - /home/butler/data/media:/data/media:ro #read-only
+      - /home/butler/data/media:/data/media
     ports:
       - 8096:8096
 
@@ -118,7 +118,6 @@ services:
     image: fallenbagel/jellyseerr:latest
     environment:
          - LOG_LEVEL=debug
-         - TZ=Asia/Tashkent
     ports:
          - 5055:5055
     volumes:
