@@ -166,7 +166,7 @@ Then change `Prowlarr Server` to `http://prowlarr:9696` and `Sonarr Server` to `
 Click `Test` and if Green - `Save`
 
 ### Bazarr
-
+I found this [video](https://www.youtube.com/watch?v=8vZ95HOdT-I&t=56s) very helpful for Bazarr set up.
 `http://host_ip>:6767`
 Languages: Go to Settings > Languages and create a "Language Profile" (e.g., "English" or "Any").
 Providers: Go to Settings > Providers and add your subtitle sources (OpenSubtitles.org, Subscene, etc.). Most require a free account.
