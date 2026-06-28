@@ -9,3 +9,6 @@ cloudflared/cert.pem
 
 # Python specific ingores
 **/.venv
+
+# App data ignores
+**/appdata
