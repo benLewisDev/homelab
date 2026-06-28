@@ -3,7 +3,7 @@
 #---------------------------------------------------------------------#
 services:
   homarr:
-    env_file: ./secrets/.env
+    env_file: ".env"
     container_name: homarr
     image: ghcr.io/homarr-labs/homarr:latest
     restart: unless-stopped
