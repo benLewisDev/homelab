@@ -9,5 +9,5 @@ https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/popupads.tx
 https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/tif.txt
 https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/fake.txt
 ```
-3. Check that Router is actually pointing to server ip
+3. Point Router DNS to PiHole server IP
 
