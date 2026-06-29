@@ -1,3 +1,5 @@
+# Note: Not currently using pihole until i have a seprate machine to run it on. 
+
 # Notes for Deployment
 1. Make sure create and populate .env file before deployment. 
 2. Once set up you will need to add lists for gravity. 
