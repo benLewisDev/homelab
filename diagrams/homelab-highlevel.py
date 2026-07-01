@@ -16,19 +16,20 @@ with Diagram(
         "Cloudflare\ntunnel", "../custom-icons/cloudflare-zero-trust.png"
     )
     user = Custom("User", "../custom-icons/user.png")
+    admin = Custom("Admin", "../custom-icons/admin.png")
 
     with Cluster("HomeLab"):
         switch = Switch("5 Port Switch")
-        admin = Custom("Admin", "../custom-icons/admin.png")
         # Piping
         router >> switch
 
         with Cluster("The Butler"):
             server_machine = Custom("The Butler", "../custom-icons/fedora.png")
             cockpit = Custom("Cockpit", "../custom-icons/cockpit.png")
+            tailscale = Custom("Tailscale", "../custom-icons/tailscale.png")
             # Piping
             switch >> server_machine
-            admin >> cockpit
+            admin >> tailscale
 
             with Cluster("Docker Services"):
                 cloudflare_tunnel = Custom(
@@ -38,6 +39,7 @@ with Diagram(
                 cloudflare_tunnel << tunnel_access << user
                 docker_directory = Docker("/srv/homelab/\ndocker-services")
                 server_machine >> docker_directory
+                cockpit >> cloudflare_tunnel
 
                 with Cluster("Servarr"):
                     media_directory = Folder("Media\nDirectory")
@@ -57,12 +59,11 @@ with Diagram(
                         sonarr = Custom("Sonarr", "../custom-icons/sonarr.png")
                         radarr = Custom("Radarr", "../custom-icons/radarr.png")
                         prowlarr = Custom("Prowlarr", "../custom-icons/prowlarr.png")
+                        bazarr = Custom("Bazarr", "../custom-icons/bazarr.png")
                     # Piping
                     jellyfin >> cloudflare_tunnel
                     jellyfin << media_directory
                     qbittorent >> media_directory
-                    jellyseer >> radarr
-                    jellyseer >> sonarr
 
                 with Cluster("AI LLM"):
 
@@ -77,10 +78,18 @@ with Diagram(
                 with Cluster("Portainer stack"):
                     portainer = Custom("Portainer", "../custom-icons/portainer-v1.png")
                     # Piping
-                    portainer << admin
+                    docker_directory >> portainer
 
-                with Cluster("Pi-hole stack"):
-                    pi_hole = Custom("Pi hole", "../custom-icons/pi-hole.png")
+                with Cluster("Homarr stack"):
+                    homarr = Custom("homarr", "../custom-icons/homarr.png")
                     # piping
-                    router >> pi_hole >> router
-                    admin >> pi_hole
+                    homarr >> cloudflare_tunnel
+
+                with Cluster("Monitoring"):
+                    with Cluster("Beszel Stack"):
+                        beszel_ui = Custom("Beszel-UI", "../custom-icons/beszel.png")
+                        beszel_agent = Custom(
+                            "Beszel-Agent", "../custom-icons/beszel.png"
+                        )
+                        # piping
+                        beszel_agent >> homarr
