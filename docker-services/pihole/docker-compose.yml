@@ -2,17 +2,17 @@ services:
   pihole:
     container_name: pihole
     image: pihole/pihole:latest
-    env_file: ./secrets/.env
+    env_file: ".env"
     ports:
       # DNS Ports
       - "53:53/tcp"
       - "53:53/udp"
       # Default HTTP Port
-      - "8080:80/tcp"
+      - "8081:80/tcp"
       # Default HTTPs Port. FTL will generate a self-signed certificate
       - "8443:443/tcp"
       # Uncomment the below if using Pi-hole as your DHCP Server
-      #- "67:67/udp"
+      - "67:67/udp"
     environment:
       #Set upstream dns for container
       FTLCONF_dns_upstreams: "9.9.9.9;1.1.1.1"

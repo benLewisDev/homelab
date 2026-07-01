@@ -27,7 +27,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /docker/appdata/radarr:/config
-      - ./data:/data
+      - /home/butler/data:/data
 
   ###############################################
   # SONARR - TV Shows
@@ -42,7 +42,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /docker/appdata/sonarr:/config
-      - ./data:/data
+      - /home/butler/data:/data
 
   ###############################################
   # BAZARR - Subtitles
@@ -57,7 +57,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /docker/appdata/bazarr:/config
-      - ./data/media:/data/media
+      - /home/butler/data/media:/data/media
 
   ###############################################
   # PROWLARR - Indexer Manager
@@ -91,7 +91,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /docker/appdata/qbittorrent:/config
-      - ./data:/data
+      - /home/butler/data:/data
 
   ###############################################
   # JELLYFIN - Media Server
@@ -104,9 +104,38 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /docker/appdata/jellyfin:/config
-      - ./data/media:/data/media:ro #read-only
+      - /home/butler/data/media:/data/media
     ports:
       - 8096:8096
+
+  ###############################################
+  # JELLYSEER - Media Request Library
+  ###############################################
+
+  jellyseerr:
+    <<: *common-keys
+    container_name: jellyseerr
+    image: fallenbagel/jellyseerr:latest
+    environment:
+         - LOG_LEVEL=debug
+    ports:
+         - 5055:5055
+    volumes:
+         - /path/to/appdata/config:/app/config
+    restart: unless-stopped
+
+####################################################
+# FLARESOLVERR - Cloudflare Bypass
+####################################################
+
+  flaresolverr:
+    <<: *common-keys
+    container_name: flaresolverr
+    image: ghcr.io/flaresolverr/flaresolverr:latest
+    ports:
+      - 8191:8191
+    environment:
+      - LOG_LEVEL=info
 
 ###############################################
 # ARR Stack Dedicated Network
