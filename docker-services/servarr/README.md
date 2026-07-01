@@ -20,10 +20,12 @@ This docker compose stack contains all the services required to run jellyfin and
 2. Docker Compose
 3. Mount any larger drives that you want to store the media on to `home/butler/data`. Make sure this is mounted with ownership permissions to `PUID/PGID=1000`
 4. Use these commands to set correct permissions
+
 ```
 sudo chown -R 1000:1000 ~/data
 sudo chmod -R a=,a+rX,u+w,g+w ~/data
 ```
+
 5. A file tree with the following layout in `/home/butler`
 
 ```tree
@@ -37,7 +39,6 @@ data/
     ├── music
     └── tv
 ```
-
 
 #### Deployment
 
@@ -59,6 +60,10 @@ docker compose up -d
 ## Configuration
 
 Below are the steps needed to take in the GUI of each application for the configuration.
+I also found the below video very helpful
+[Arr stack set up](https://www.youtube.com/watch?v=-PQtE6Nb0Cw&t=1893s)
+
+---
 
 ### qBittorrent
 
@@ -119,6 +124,8 @@ Thats it for qBittorrent.
 Now configure Prowlarr service (each of these services will require to set up user/pass):
 Use 'Form (login page) authentication and set your user and pass for all.
 
+---
+
 ### Prowlarr
 
 `http://<host_ip>:9696`
@@ -127,6 +134,8 @@ UNTICK the `Use SSL` (unless you have SSL configured in qBittorrent - Tools - Op
 Host - use `qbittorrent` and port - put the port id matching the WebUI in docker-compose for qBittorrent (default is `8080`)
 username and password - use the one that you configured for qBittorrent in previous step
 Click little `Test` button at the bottom, make sure you get a green `tick` then `Save`.
+
+---
 
 ### Radarr
 
@@ -148,6 +157,8 @@ Click `Test` and if Green - Save
 BTW - you can see how to configure each service for hardlinks [HERE](https://trash-guides.info/File-and-Folder-Structure/Examples/)
 You need to configure SABnzbd / qbittorrent and any other services you run too, not only Radarr or Sonarr
 
+---
+
 ### Sonarr
 
 `http://<host_ip>:8989`
@@ -165,12 +176,17 @@ Now go to `Settings - General` - scroll down to API key - Copy API key - go back
 Then change `Prowlarr Server` to `http://prowlarr:9696` and `Sonarr Server` to `http://sonarr:8989`
 Click `Test` and if Green - `Save`
 
+---
+
 ### Bazarr
+
 I found this [video](https://www.youtube.com/watch?v=8vZ95HOdT-I&t=56s) very helpful for Bazarr set up.
 `http://host_ip>:6767`
 Languages: Go to Settings > Languages and create a "Language Profile" (e.g., "English" or "Any").
 Providers: Go to Settings > Providers and add your subtitle sources (OpenSubtitles.org, Subscene, etc.). Most require a free account.
 Sync: After connecting Radarr/Sonarr, go to the Series or Movies tab and click "Update" to pull in your existing library.
+
+---
 
 ### Restart services
 
@@ -180,6 +196,8 @@ It might be a good idea to restart all services and see if they come up as expec
 sudo docker compose down
 sudo docker compose up -d
 ```
+
+---
 
 ### Remaining config
 
@@ -235,6 +253,8 @@ If the video does not move automatically from torrents to media, then check the 
 You might have a flag saying: 'Downloaded - Unable to Import Automatically'
 Click the Manual Import (icon that looks like human head on the far right of the item row)
 Confirm the Movie: In the popup, ensure the correct movie is selected in the dropdown. If it is correct, click 'Import'
+
+---
 
 ## FlareSolverr
 
