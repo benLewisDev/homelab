@@ -1,0 +1,103 @@
+[
+    {
+        "Name": "arr_network",
+        "Id": "3dfadc0887a09f04817ea6c8b020d553125ea2412601aa011e3386db64fa442f",
+        "Created": "2026-06-27T16:03:07.011452338+09:30",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv4": true,
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": null,
+            "Config": [
+                {
+                    "Subnet": "172.20.0.0/16",
+                    "Gateway": "172.20.0.1"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Options": {},
+        "Labels": {
+            "com.docker.compose.config-hash": "38343595eff11e2371f0417de359203c6d4bd721344515c77e513a002b945793",
+            "com.docker.compose.network": "default",
+            "com.docker.compose.project": "servarr",
+            "com.docker.compose.version": "5.1.4"
+        },
+        "Containers": {
+            "1440feaa37498e9016d2b00628abe25ac0fca91581fadb5247a91eebdd70b2f3": {
+                "Name": "flaresolverr",
+                "EndpointID": "0bff64822fe2b4896808349defd268a30c0ef7c94ce9bc9ee0abd9924726b75f",
+                "MacAddress": "e2:70:28:ba:c1:04",
+                "IPv4Address": "172.20.0.6/16",
+                "IPv6Address": ""
+            },
+            "342157595c90c20989ea98e8106c6679022da91e9480c8015f0cb230c8331b0b": {
+                "Name": "bazarr",
+                "EndpointID": "411c6c69f872f856b38adb90d9fc2164284e41d148d3e24a625f127464de0b89",
+                "MacAddress": "f6:5f:07:56:ec:17",
+                "IPv4Address": "172.20.0.2/16",
+                "IPv6Address": ""
+            },
+            "4e75f31b31e807238ad731c219627fd1a5e3e878b6a02b538ae6cfefd5b5c8c9": {
+                "Name": "jellyfin",
+                "EndpointID": "bab1f349008d79ddbc35d27c9806d08f0b7d57e3f049ac34644ad8bac8b8acb4",
+                "MacAddress": "12:a3:1e:74:9c:2d",
+                "IPv4Address": "172.20.0.4/16",
+                "IPv6Address": ""
+            },
+            "9e07c356a623abfc0a15660db7e28158f1b1eaec9f47a8941810cfad88ba44c1": {
+                "Name": "jellyseerr",
+                "EndpointID": "895001bbf5f1de37cda6b13bcca78dcad22a51cc826f33d717d0f170ae4ffb46",
+                "MacAddress": "86:04:3c:82:f7:d0",
+                "IPv4Address": "172.20.0.5/16",
+                "IPv6Address": ""
+            },
+            "b758ce9ca6c6b59e8b092a08927d9e3b4fadc28cace590c841fc22736350a359": {
+                "Name": "radarr",
+                "EndpointID": "64bffad08c0763ca0aee80ab93c55e6dcb19a644bc6506ac6966cd2a35df8787",
+                "MacAddress": "f6:2c:0f:0b:f2:c6",
+                "IPv4Address": "172.20.0.8/16",
+                "IPv6Address": ""
+            },
+            "c85fd81e3a3f9bddbaef20f08736376d699189fc70f00e3d1531b5abb2f1a89e": {
+                "Name": "prowlarr",
+                "EndpointID": "7210cdfbee4f4493546254f381ca2890ce07821c4f26fa2e20aa428e59163952",
+                "MacAddress": "16:28:5f:62:3c:19",
+                "IPv4Address": "172.20.0.3/16",
+                "IPv6Address": ""
+            },
+            "d3bf8886fddfa583d1ef324611b21c0653d6fde6617f5c6875a9b93763eb36f3": {
+                "Name": "qbittorrent",
+                "EndpointID": "e931aa5aa3cd8b74a42cffee34bcc360827915adb6c9743cd30dd1eaa818fb4d",
+                "MacAddress": "b6:2d:24:ed:dd:3c",
+                "IPv4Address": "172.20.0.7/16",
+                "IPv6Address": ""
+            },
+            "f73871ca8687ca284731fc1738bd869d30255ee23d159ae47c636808f059f584": {
+                "Name": "sonarr",
+                "EndpointID": "d91b8d94b23cc83adab8fada927bae3e9cde4592c90ec9af21f99ce4b94dc995",
+                "MacAddress": "0a:df:37:4d:8f:e7",
+                "IPv4Address": "172.20.0.9/16",
+                "IPv6Address": ""
+            }
+        },
+        "Status": {
+            "IPAM": {
+                "Subnets": {
+                    "172.20.0.0/16": {
+                        "IPsInUse": 11,
+                        "DynamicIPsAvailable": 65525
+                    }
+                }
+            }
+        }
+    }
+]
