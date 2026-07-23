@@ -52,8 +52,9 @@ This entire system is running on my old laptop. It has modest specs:
 - Docker Engine/Docker Compose:
   - Used to align mostly with what i see used in the industry.
 - Cloudflare Tunnel
-  - My IPS uses carrier grade NAT. This means that exposing these services behind a traditional reverse proxy is impossible. Therefore, Cloudflare tunnels provide a convenient and secure way to access these services outside of my home network.
-
+  - My ISP uses carrier grade NAT. This means that exposing these services behind a traditional reverse proxy is impossible. Therefore, Cloudflare tunnels provide a convenient and secure way to access these services outside of my home network for services intended to be user focused. Such as Jellyfin, Jellyseer, Openweb ui and Homarr.
+  - More administrative type serveices are accessed via tailscale.
+ 
 ## Repo layout
 
 ```
