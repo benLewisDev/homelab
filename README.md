@@ -7,7 +7,7 @@ A mono-repo for managing my home lab. Including but not limited to docker servic
 ## Status
 
 - Repo: private (WIP)
-- Currently in the planning stages
+- Deployed
 
 ## Table of Contents
 
