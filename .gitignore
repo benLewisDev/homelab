@@ -14,3 +14,5 @@ cloudflared/cert.pem
 **/appdata
 **/etc-pihole/
 **/beszel**
+**openwebui-data/
+

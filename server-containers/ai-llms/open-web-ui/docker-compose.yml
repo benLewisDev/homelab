@@ -1,6 +1,6 @@
 services:
   open-webui:
-    image: ghcr.io/open-webui/open-webui:ollama
+    image: ghcr.io/open-webui/open-webui:main
     container_name: open-web-ui
     ports:
       - "3000:8080"
@@ -8,19 +8,15 @@ services:
       - 1.1.1.1
       - 8.8.8.8
     environment:
-      BYPASS_MODEL_ACCESS_CONTROL: True
+      - BYPASS_MODEL_ACCESS_CONTROL=True
+      - OLLAMA_BASE_URL=http://docker.internal
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     volumes:
-      - ollama:/root/.ollama
-      - open-webui:/app/backend/data
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: all
-              capabilities: [gpu]
+      - /home/butler/homelab/server-containers/ai-llms/open-web-ui/openwebui-data:/app/backend/data:Z
     restart: unless-stopped
 
 volumes:
-  ollama:
   open-webui:
+    name: open-webui
+
