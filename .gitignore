@@ -13,6 +13,8 @@ cloudflared/cert.pem
 # App data ignores
 **/appdata
 **/etc-pihole/
-**/beszel**
+beszel_agent_data
+beszel_data
+beszel_socket
 **openwebui-data/
 
