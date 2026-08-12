@@ -31,23 +31,14 @@ A mono-repo for managing my home lab. Including but not limited to docker servic
 
 ## Hardware and infrastructure
 
-This entire system is running on my old laptop. It has modest specs:
-
-- i7-7700HQ
-- GTX-1050
-- 8 GB RAM
-- 120GB SSD
-- 1TB internal HD
-- 5TB external HD
-
-New Machine Specs
 - R5 5600GT
 - RX 6750 XT 12GB VRAM
 - 32GB RAM
 - LVM Drive pool
     - 1 x 8TB
     - 1 x 5TB
-  
+
+I also have some containers running on my personal gaming machine. Mostly AI experimentation to best take advantage of it's more powerful hardware. 
 
 ## Architecture
 
@@ -70,15 +61,20 @@ homelab/
 ├── diagrams
 │   ├── custom-icons
 │   └── output
-└── docker-services
-    ├── ai-llms
-    │   ├── liteLLM
-    │   └── open-web-ui
-    ├── cloudflared-tunnel
-    ├── pi-hole
-    ├── portainer
-    └── servarr
-        └── data
+├── server-containers
+│   ├── ai-llms
+│   │   └── open-web-ui
+│   ├── cloudflared-tunnel
+│   ├── homarr
+│   │   └── homarr
+│   ├── monitoring
+│   │   ├── beszel_agent_data
+│   │   ├── beszel_data
+│   │   └── beszel_socket
+│   ├── pihole
+│   └── servarr
+└── workstation-containers
+    └── beszel-agent
 ```
 
 ## Currently Running Services
@@ -98,8 +94,6 @@ homelab/
 
 - Docker File Browser
   - Allows fast and easy file administration with a GUI
-- Homepage
-  - A central "command hub" for quick monitoring and access to varies services
 - Home Assistant
   - Make myself a smart house!
 
