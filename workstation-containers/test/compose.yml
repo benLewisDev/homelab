@@ -1,0 +1,9 @@
+services:
+  webserver:
+    image: nginx:alpine
+    container_name: nginx_hello_world
+    ports:
+      - "8081:80"
+    volumes:
+      - ./index.html:/usr/share/nginx/html/index.html:ro
+
