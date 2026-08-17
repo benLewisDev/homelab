@@ -1,0 +1,144 @@
+  qbittorrent:
+    container_name: qbittorrent
+    dns:
+      - 1.1.1.1
+      - 1.0.0.1
+    environment:
+      BAZARR_API_KEY: 73c1f562e1dcf0e4bf503b5154f7f423
+      Q_PASSWORD: fnToM9LLR7knzG
+      Q_USERNAME: Butler
+      TORRENTING_PORT: "6881"
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - curl -fsS -c /tmp/qb.cookie -d "username=Butler" -d "password=fnToM9LLR7knzG"
+          http://localhost:8080/api/v2/auth/login >/dev/null && curl -fsS -b /tmp/qb.cookie
+          http://localhost:8080/api/v2/app/webapiVersion >/dev/null
+      timeout: 5s
+      interval: 30s
+      retries: 3
+      start_period: 30s
+    image: ghcr.io/hotio/qbittorrent:latest
+    logging:
+      driver: json-file
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 8080
+        published: "8888"
+        protocol: tcp
+      - mode: ingress
+        target: 6881
+        published: "6881"
+        protocol: tcp
+      - mode: ingress
+        target: 6881
+        published: "6881"
+        protocol: udp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /etc/localtime
+        target: /etc/localtime
+        read_only: true
+        bind: {}
+      - type: bind
+        source: /docker/appdata/qbittorrent
+        target: /config
+        bind: {}
+      - type: bind
+        source: /home/butler/data
+        target: /data
+        bind: {}
+  radarr:
+    container_name: radarr
+    dns:
+      - 1.1.1.1
+      - 1.0.0.1
+    environment:
+      BAZARR_API_KEY: 73c1f562e1dcf0e4bf503b5154f7f423
+      PGID: "1000"
+      PUID: "1000"
+      Q_PASSWORD: fnToM9LLR7knzG
+      Q_USERNAME: Butler
+      TZ: Australia/Adelaide
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - curl -f http://localhost:7878 || exit 1
+      timeout: 5s
+      interval: 30s
+      retries: 3
+      start_period: 30s
+    image: ghcr.io/hotio/radarr:latest
+    logging:
+      driver: json-file
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 7878
+        published: "7878"
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /etc/localtime
+        target: /etc/localtime
+        read_only: true
+        bind: {}
+      - type: bind
+        source: /docker/appdata/radarr
+        target: /config
+        bind: {}
+      - type: bind
+        source: /home/butler/data
+        target: /data
+        bind: {}
+  sonarr:
+    container_name: sonarr
+    dns:
+      - 1.1.1.1
+      - 1.0.0.1
+    environment:
+      BAZARR_API_KEY: 73c1f562e1dcf0e4bf503b5154f7f423
+      PGID: "1000"
+      PUID: "1000"
+      Q_PASSWORD: fnToM9LLR7knzG
+      Q_USERNAME: Butler
+      TZ: Australia/Adelaide
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - curl -f http://localhost:8989/ping || exit 1
+      timeout: 5s
+      interval: 30s
+      retries: 3
+      start_period: 30s
+    image: ghcr.io/hotio/sonarr:latest
+    logging:
+      driver: json-file
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 8989
+        published: "8989"
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /etc/localtime
+        target: /etc/localtime
+        read_only: true
+        bind: {}
+      - type: bind
+        source: /docker/appdata/sonarr
+        target: /config
+        bind: {}
+      - type: bind
+        source: /home/butler/data
+        target: /data
+        bind: {}
+networks:
