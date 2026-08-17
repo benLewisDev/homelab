@@ -102,7 +102,7 @@ services:
     container_name: qbittorrent
     image: ghcr.io/hotio/qbittorrent:latest
     ports:
-      - 8080:8080
+      - 8282:8080
       - 6881:6881
       - 6881:6881/udp
     environment:
