@@ -1,0 +1,28 @@
+services:
+  enshrouded:
+    image: mbround18/enshrouded-docker:proton-latest
+    container_name: enshrouded
+    hostname: enshrouded
+    restart: unless-stopped
+    stop_grace_period: 120s
+
+    env_file:
+      - .env
+
+    volumes:
+      - ./data:/home/steam/enshrouded
+
+    networks:
+      game-tunnel:
+        aliases:
+          - enshrouded
+
+    # Optional: enable only if the host supports it.
+    # Check with: ls -l /dev/ntsync
+    devices:
+      - /dev/ntsync:/dev/ntsync
+
+networks:
+  game-tunnel:
+    external: true
+    name: game-tunnel
