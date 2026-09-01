@@ -1,0 +1,26 @@
+services:
+  valheim:
+    image: ghcr.io/community-valheim-tools/valheim-server:latest
+    container_name: valheim
+    restart: unless-stopped
+    stop_grace_period: 2m
+
+    cap_add:
+      - SYS_NICE
+
+    env_file:
+      - .env
+
+    volumes:
+      - ./config:/config
+      - ./data:/opt/valheim
+
+    networks:
+      game-tunnel:
+        aliases:
+          - valheim
+
+networks:
+  game-tunnel:
+    external: true
+    name: game-tunnel
