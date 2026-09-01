@@ -5,7 +5,7 @@ Docker Compose stack for a private Valheim dedicated server.
 ## Networking
 The server attaches to the shared external `game-tunnel` Docker network.
 The Playit agent reaches Valheim at `valheim:2456`; no Valheim ports are
-published on the Fedora host or forwarded through the router.
+published on the host or forwarded through the router.
 
 Players join using the Playit endpoint or a Cloudflare DNS alias pinned in my discord server
 
