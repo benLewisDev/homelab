@@ -45,3 +45,53 @@ The previous hosted save is retained on the original machine as a backup.
 
 Do not host the old local save again after migration; it will create a separate,
 diverging version of the world.
+
+## Troubleshooting
+#### Fixing an Enshrouded Version Mismatch
+
+If the server is visible and running but the game reports Version Mismatch, SteamCMD may have failed to apply an update and left its manifest stuck.
+
+Typical container logs include:
+`Error! App '2278520' state is 0x6 after update job.`
+Update procedure
+
+#### Run these commands from this stack’s Compose directory.
+
+Stop the server before changing its installed game files:
+```bash
+docker compose stop enshrouded
+```
+Start a temporary shell with the same mounted server data:"
+```bash
+docker compose run --rm --no-deps --entrypoint sh enshrouded
+```
+Inside the temporary container, back up and remove only SteamCMD’s active manifest:
+```bash
+cd /home/steam/enshrouded/steamapps
+
+cp appmanifest_2278520.acf "appmanifest_2278520.acf.stuck-$(date +%F-%H%M%S)"
+rm appmanifest_2278520.acf
+```
+| This does not delete the world, configuration, or Enshrouded server files. It removes only SteamCMD’s record of the installed version.
+Update and validate the Windows server depot used by Proton:
+```bash
+/usr/games/steamcmd \
+  +@sSteamCmdForcePlatformType windows \
+  +force_install_dir /home/steam/enshrouded \
+  +login anonymous \
+  +app_update 2278520 validate \
+  +quit
+```
+Wait for this success message:
+`Success! App '2278520' fully installed.`
+If SteamCMD first updates itself or reports Missing configuration, run the same command a second time.
+Confirm the installed and target build IDs match:
+```bash
+grep -E '"(buildid|TargetBuildID|StateFlags|UpdateResult)"' \
+  /home/steam/enshrouded/steamapps/appmanifest_2278520.acf
+```
+Start the server back 
+```bash
+docker compose up -d enshrouded
+docker logs -f enshrouded
+```
