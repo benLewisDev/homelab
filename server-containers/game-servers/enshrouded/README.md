@@ -76,7 +76,6 @@ rm appmanifest_2278520.acf
 Update and validate the Windows server depot used by Proton:
 ```bash
 /usr/games/steamcmd \
-  +@sSteamCmdForcePlatformType windows \
   +force_install_dir /home/steam/enshrouded \
   +login anonymous \
   +app_update 2278520 validate \
