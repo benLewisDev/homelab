@@ -75,11 +75,12 @@ rm appmanifest_2278520.acf
 | This does not delete the world, configuration, or Enshrouded server files. It removes only SteamCMD’s record of the installed version.
 Update and validate the Windows server depot used by Proton:
 ```bash
-/usr/games/steamcmd \
-  +force_install_dir /home/steam/enshrouded \
-  +login anonymous \
-  +app_update 2278520 validate \
-  +quit
+  /usr/games/steamcmd \
+    +@sSteamCmdForcePlatformType windows \
+    +force_install_dir /home/steam/enshrouded \
+    +login anonymous \
+    +app_update 2278520 validate \
+    +quit
 ```
 Wait for this success message:
 `Success! App '2278520' fully installed.`
